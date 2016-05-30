@@ -1,0 +1,140 @@
+0.87    2015-04-12
+-update Text.tprint to use rendered character cache.
+-refactor module to isolate framework.
+-update module for alternate framework, can use Pygame, PyJ2D, or Pyjsdl.
+-add interphase.init and interphase.get_init to initialize module.
+-add textbox clipboard functionality for PyJ2D and Pyjsdl via pyjsdl.display.textarea.
+-update textbox.get_text to properly return text.
+-update interface to maintain control hold if pointer moves off control.
+-add interface process_event and get_event_queue methods.
+-add scroll wheel functionality, activated with interface parameter scroll_button.
+-update scroll config for numeric control.
+-update interface scroll_button to use hashset when set not available in earlier jython releases.
+-released under MIT license.
+
+0.86    2014-02-27
+-updated Text.tprint multiline print on background color.
+-updated Control to cache rendered text.
+-changed license from GPL to LGPL.
+
+0.85    2013-04-03
+-updated Interface.panel_update to move event generation from InterfaceState.
+-updated Interface.set_label_display and Interface.panel_update to ensure panel update.
+-updated Text.tprint to adjust text position.
+
+0.84    2012-03-01
+-transferred clipboard functions to Interface
+-added Interface methods clipboard_get and clipboard_set
+-added Interface methods draw and clear
+-refactoring of Control objects
+-generated documentation with epydoc
+
+0.83    2012-02-26
+-changed interface update for performance
+-added interface is_update and  to check update, limiting panel redraw on screen
+-added interface set_update manually change panel update, that triggers either _force_update or sets to sustained updates until unset
+-added panel function list that can be changed with set_panel_function
+-changed panel_update to work with improved update
+-added to InterfaceState state object the attribute panel_update
+-updated control action to change control function, including avoiding exception capture of added functions
+-added to textbox check_size, set_line_max and get_line_max, set_line_width, get_line_width
+-added to textbox text_copy, text_paste
+-added to textbox get_text
+-changed textbox action adding to button id _copy and _paste extension on copy and paste
+-text_margin can take (t,r,b,l) in addition to single int
+-added control set_text_margin and get_text_margin
+-added control get_display_text to retrieve text font object
+-updated control set_list to keep single control tip
+-updated Text __init__, added set_margin, and changed methods to margin (t,r,b,l)
+
+0.82    2012-02-18
+-added control add_action method to submit function to bind to control
+-updated control action to call bound function
+-added textbox control
+-added Textbox methods format_text, add_format, set_scroll_line
+-added Text methods set_text_alignment, set_margin, check_sizes, surface_size, word_wrap, split_long_text
+-updated Text method tprint for multiline print
+-updated interface _activate_controls to resolve link controls, added control _activate
+-refactored code to separate control types
+
+0.81    2010-11-20
+Interface Class changes:
+-default images base64 encoded in a py file to ease packaging.
+-extended image default source, allow zip archive and path/zip can be given if an image not in default, and accept surfaces.
+-updated _default_image, _set_image, set_panel_image, set_control_image, set_button_image, _display_controls, _activate_controls, enable_control, disable_control, set_moveable, activate, deactivate
+-added get_default_image, _zip_file, _data_source
+-added parameter data_zip, button_size, color_key, font_type
+InterfaceControl Class changes:
+-updated set_control_image, set_listing_icon, set_listing, set_list, get_list, remove_list, set_value, define_buttons, control_size, action, action_numeric_i, next, previous, reset, set_activated, set_activated_lock, set_active, set_display_info, set_label_info, set_display_text, set_label_text, check_link, set_tips, set_tip
+-changed control_size/set_control_size, set_display/set_display_info, set_label/set_label_info
+-added set_list_icon, set_icon_size, set_label, get_label, resize_control, set_enabled, is_enabled, get_size, set_color, get_list_index, set_list_index
+-added parameter icon_size, font_type
+
+0.80    2010-10-25
+-Interphase in package
+-place interphase folder in path or in script folder
+-import can work from a zip containing interphase folder
+    -before import interphase place zip in path
+    -sys.path.insert(0, './interphase_zipfile')
+        #set zip path to interphase zip, ex. is in script folder
+-image parameter ['none'] to 'none'
+-image parameter None use default image or first panel image
+-image parameter can be string or list
+-changed DisplayMsg Class to Text Class
+-update load_image
+-interphase.util has Text and load_image
+-run interphase.py to exec demo
+-added pygame events interphase.EVENT['controlselect'], interphase.EVENT['controlinteract']
+    -event.state parameter references InterfaceState object instance
+Interface Class changes:
+-added image for default images
+-added parameters data_folder, event
+-added _control link to InterfaceControl
+-added _load_image link to interphase.util.load_image
+-added _text link to interphase.util.Text
+-added _data for data_folder
+-default images in image.dat
+-updated set_panel_image, set_control_image, set_button_image, _moveable_panel, _display_controls, _interact, get_state, panel_update, move_control, _panel_interaction, _display_update
+-added _set_image, _default_image, get_panel_image, _control_interact, _control_select, get_id, get_pointer_position, set_pointer_interact
+-added timer to panel movement and control response
+-updated parameters move_rate, control_response
+-changed parameter pointer_move to pointer_interact
+-updated InterfaceState Class
+InterfaceControl Class changes:
+-updated parameters control_response, hold_response
+-added parameters delay_response and activated_toggle:'Lock', event
+-updated set_listing_icon, set_control_image, set_listing, set_value, control_size, set_list, set_activated, check_link, action
+-added set_activated_lock, is_activated_lock, action_numeric_i, action_numeric_f, get_id
+
+0.73    2010-02-05
+-updated panel _panel_interaction
+-updated control set_listing
+
+0.72    2009-10-12
+-added panel move_control, set_control_move, get_control_move, is_control_moveable, set_control_moveable
+-added control get_position
+-added Interphase demo - Sliding Control Puzzle
+
+0.71    2009-09-07
+-InterfaceControl
+ -added parameters control_response, split_text
+ -updated set_listing_icon, control_size, set_value, set_display, set_label
+ -added reset, set_display_text, set_label_text
+
+0.70    2009-09-05
+-renamed panel variables to protect
+-added panel get_position, get_size
+-changed panel get_values to get_value
+-updated panel: get_control, get_value, _display_controls, _display_update, _moveable_panel, _interact, _panel_interaction, panel_update, control: set_value
+-optimized panel update
+
+0.60    2009-08-20
+-added panel methods: is_moveable, set_moveable, set_panel_display, is_info_display, set_info_display, is_label_display, set_label_display, is_tips_display, set_tips_display, get_control, add_info, clear_info; updated: display_controls, interact, remove_control, enable_control, disable_control, get_values.
+-added control methods: get_list, set_active, set_link_activated, is_activated, set_activated; updated: set_list, remove_list, set_tip, action, next, previous.
+-added 'function_toggle' type control, and added chain linking to function controls.
+-removed panel pointer_block and pygame.event.set_blocked(MOUSEBUTTONDOWN).
+-changed control_activated/control_deactivated/button_activated/button_size/button_minsize/command_list to control_enabled/control_disabled/activated/control_size/control_minsize/control_list.
+
+0.50    2009-08-07
+-initial release
+
