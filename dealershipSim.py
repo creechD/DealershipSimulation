@@ -86,7 +86,6 @@ class dealershipSim:
         """This is the Main Loop of the Game"""
         dlr = dealership()
         
-        
         """Create the background"""
         self.background = pygame.Surface(self.screen.get_size())
         self.background = self.background.convert()
