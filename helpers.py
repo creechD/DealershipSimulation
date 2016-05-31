@@ -4,7 +4,7 @@ import os, sys
 import pygame
 from pygame.locals import *
 
-from dealership import *
+from Dealership import *
 
 
 def load_image(name, imgType, colorkey=None):

@@ -8,7 +8,7 @@ import pygame
 
 pygame.init()
         
-from dealership import *
+from Dealership import *
 from datetime import datetime
 
 black = (  0,   0,   0)
@@ -20,7 +20,7 @@ red =   (255,   0,   0)
 if not pygame.font: print 'Warning, fonts disabled'
 if not pygame.mixer: print 'Warning, sound disabled'
 
-class dealershipSim:
+class DealershipSim:
     """The Main PyMan Class - This class handles the main 
     initialization and creating of the Game."""
     
@@ -84,7 +84,7 @@ class dealershipSim:
 
     def MainLoop(self):
         """This is the Main Loop of the Game"""
-        dlr = dealership()
+        dlr = Dealership()
         
         """Create the background"""
         self.background = pygame.Surface(self.screen.get_size())
@@ -142,5 +142,5 @@ class dealershipSim:
         
 
 if __name__ == "__main__":
-    MainWindow = dealershipSim()
+    MainWindow = DealershipSim()
     MainWindow.MainLoop()   

@@ -4,7 +4,7 @@ Created on Sat May 28 12:06:11 2016
 
 @author: DavidCreech
 """
-from dealership import *
+from Dealership import *
 from stateMachine import *
 
 import pygame

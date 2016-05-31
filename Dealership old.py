@@ -14,7 +14,7 @@ from salesPerson import *
 
 from random import randint
 
-class dealership(object): # Class that stores basically EVERYTHING!
+class Dealership(object): # Class that stores basically EVERYTHING!
 
     def __init__(self):
 
@@ -87,7 +87,7 @@ class dealership(object): # Class that stores basically EVERYTHING!
         self.left_customer_id += 1
         del self.customers[customer.id]
   
-    def add_salesPerson(self, salesPerson): # Used to add customers
+    def add_salesPerson(self, salesPerson): # Used to add customers 
         self.salesPeople[self.salesPerson_id] = salesPerson
         salesPerson.id = self.salesPerson_id
         self.salesPerson_id += 1

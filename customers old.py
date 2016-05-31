@@ -1,5 +1,5 @@
 from stateMachine import *
-from dealership import *
+from Dealership import *
 
 from GameEntity import *
 import pygame
