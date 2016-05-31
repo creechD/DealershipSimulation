@@ -9,8 +9,8 @@ import pygame
 
 from pygame.locals import *
 from helpers import *
-from customers import *
-from salesPerson import *
+from Customers import *
+from SalesPerson import *
 
 from random import randint
 
