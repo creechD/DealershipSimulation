@@ -16,7 +16,7 @@ class newVehicleCustomer(GameEntity):
         GameEntity.__init__(self, dealership, "Customer", image)
         self.id = 0
         
-        self.prefered_sp = None # Tracks with Salesperons the customers likes
+        self.preferred_sp = None # Tracks with Salesperons the customers likes
         self.engaged_sp = None # Tracks which Salesperson is engaged with the 
                                #  customer
         self.near_by_sp = None # Tracks to see if there are any near by sales 
@@ -30,6 +30,8 @@ class newVehicleCustomer(GameEntity):
         
         self.previous_action = None
         
+        # This sections defines the different states the customer can take on
+        #   and then adds those states to their brain
         self.idle_state = customer_idle(self)
         self.shopping_state = customer_shopping(self)
         self.engaged_state = customer_engaged_with_sp(self)
@@ -106,8 +108,10 @@ class customer_shopping(State):
                 return "idle"
             elif action_roll > 2 and self.customer.near_by_sp != None:
                 return "engaged"
-            elif action_roll == 2 and self.customer.near_by_sp == self.customer.prefered_sp and self.customer.near_by_sp != None:
-                # This is the extra bonus for having the prefered SP around
+            elif (action_roll == 2 
+                and self.customer.near_by_sp == self.customer.preferred_sp 
+                and self.customer.near_by_sp != None):
+                # This is the extra bonus for having the preferred SP around
                 return "engaged"
             
     def exit_actions(self): # Required
