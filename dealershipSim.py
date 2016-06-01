@@ -114,7 +114,6 @@ class DealershipSim:
             # Keep track of how much time has elapsed for timer purposes
             #self.elapsedTime += self.waitTime * 0.001
             dlr.clock.tick(20)
-            dlr.elapsedTime += 1.0/20
 
             """ 
             Here is the main loop where all actions will take place
@@ -122,9 +121,11 @@ class DealershipSim:
             """
             #pygame.time.delay(self.waitTime)
           
-            if self.paused == False:            
+            if self.paused == False:   
+                
+                dlr.elapsedTime += 1.0/20
                 # Run Game Actions
-                dlr.customerActions(dlr.elapsedTime)
+                dlr.dealershipActions(dlr.elapsedTime)
                 
                 # Update Display         
                 pygame.display.flip()
@@ -136,7 +137,6 @@ class DealershipSim:
                 #pygame.display.flip()
             else:
                 self.printInfo("The simulation is", "paused", 0, self.height-80);
-            dlr.clock.tick(60)
             
         pygame.quit()    
         

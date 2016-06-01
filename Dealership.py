@@ -95,7 +95,7 @@ class Dealership(object): # Class that stores basically EVERYTHING!
     def remove_salesPerson(self, salesPerson): #function for removing customers
         del self.salesPeople[salesPerson.id]     
         
-    def customerActions(self, time_passed):
+    def dealershipActions(self, time_passed):
         # Check to see if a new customer walks in
 
         if time_passed - self.last_customer_time < self.waitTime:
@@ -109,7 +109,7 @@ class Dealership(object): # Class that stores basically EVERYTHING!
                 new_customer = newVehicleCustomer(self, "image")
                 new_customer.brain.set_state("shopping")
                 self.add_customer(new_customer)
-            self.process(time_passed)
+        self.process(time_passed)
             
     def count_States(self):
         self.idle = 0
