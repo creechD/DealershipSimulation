@@ -22,7 +22,7 @@ class newVehicleCustomer(GameEntity):
         self.near_by_sp = None # Tracks to see if there are any near by sales 
                                #  people ready
         
-        self.actions_per_second = 0.5 # Every 2 seconds actions are done
+        self.actions_per_second = 1 # Every 1 seconds actions are done
         self.last_action_time = 0        
         
         self.entered_store = self.dealership.elapsedTime

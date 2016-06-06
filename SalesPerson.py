@@ -19,7 +19,7 @@ class newVehicleSalesPerson(GameEntity):
         self.startTime = 0 # To keep track of how long the sales person has 
                            #  been working        
 
-        self.actions_per_second = 0.5 # Every 2 seconds actions are done
+        self.actions_per_second = 1 # Every 1 seconds actions are done
         self.last_action_time = 0           
         
         self.helping_customer = None # Tracks which customer the Salesperson is

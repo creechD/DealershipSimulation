@@ -571,7 +571,7 @@ def run():
                 panel.update_rect = []
         else:
             run_demo = False
-
+    pygame.quit()             
 
 def main():
     run()

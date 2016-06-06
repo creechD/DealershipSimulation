@@ -21,7 +21,7 @@ class Dealership(object): # Class that stores basically EVERYTHING!
 
         self.clock = pygame.time.Clock()
         self.elapsedTime = 0.0
-        self.waitTime = 2.0
+        self.waitTime = 1
         
         # Each customer is given a unique ID so that the program can find it
         self.customers = {}
@@ -87,6 +87,15 @@ class Dealership(object): # Class that stores basically EVERYTHING!
         self.left_customer_id += 1
         del self.customers[customer.id]
   
+    def get_customer(self, customer_id):
+        out_customer = None
+        for customer in self.customers.values():
+            if customer.id == int(customer_id):
+                out_customer = customer
+                return customer
+        # Return None if the customer wasn't found
+        return out_customer
+  
     def add_salesPerson(self, salesPerson): # Used to add customers 
         self.salesPeople[self.salesPerson_id] = salesPerson
         salesPerson.id = self.salesPerson_id
@@ -109,7 +118,7 @@ class Dealership(object): # Class that stores basically EVERYTHING!
                 new_customer = newVehicleCustomer(self, "image")
                 new_customer.brain.set_state("shopping")
                 self.add_customer(new_customer)
-        self.process(time_passed)
+                self.process(time_passed)
             
     def count_States(self):
         self.idle = 0
